@@ -1,0 +1,16 @@
+<a href='<%= logout_path %>' id='Log Out'>Log Out</a><br>
+<a href='<%= attractions_path %>' id='See attractions'>See attractions</a><br>
+
+<% if flash[:message] %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+<h1><%= @user.name %></h1><br>
+<ul>
+  <li>Height: <%= @user.height %></li>
+  <li>Mood: <%= @user.mood %></li>
+  <li>Tickets: <%= @user.tickets %></li>
+  <% if @user.admin %>
+    <li>ADMIN</li>
+  <% end %>
+</ul>

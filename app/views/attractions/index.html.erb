@@ -1,0 +1,13 @@
+<h1>All Attractions</h1><br>
+<% if !current_user.nil? && current_user.admin %>
+  <a href='<%= new_attraction_path %>' id="New attraction">New Attraction</a><br>
+  <%= div_for @attractions do |attraction| %>
+    <%= link_to "Show #{attraction.name}", attraction_path(attraction) %>
+    <a href='<%= edit_attraction_path(attraction) %>' id="Edit attraction">Edit Attraction</a><br>
+    <a href='<%= delete_attraction_path(attraction) %>' id="Delete Attraction">Delete Attraction</a><br>
+  <% end %>
+<% else %>
+  <%= div_for @attractions do |attraction| %>
+    <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+  <% end %>
+<% end %>

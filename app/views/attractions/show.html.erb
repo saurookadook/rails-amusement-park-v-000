@@ -1,0 +1,9 @@
+<h1><%= @attraction.name %></h1><br>
+
+<%= form_for @attraction, url: ride_path do |f| %>
+  <%= f.submit "Go on this ride" %>
+  <% if current_user.admin %>
+  <a href='<%= edit_attraction_path(@attraction) %>' id="Edit attraction">Edit Attraction</a><br>
+  <a href='<%= delete_attraction_path(@attraction) %>' id="Delete Attraction">Delete Attraction</a><br>
+  <% end %>
+<% end %>
